@@ -1,0 +1,26 @@
+enable password robin
+enable secret batman
+service password-encryption
+ip domain name cisco.com
+ip name-server 192.168.4.5
+username student priv 15 password snowball
+crypto key generate rsa
+yes
+1024
+
+
+ip ssh ver 2
+
+line con 0
+password cisco
+login
+exec-timeout 0 0
+logging sync
+
+line vty 0 15
+login local
+exec-timeout 0 0
+logging sync
+transport input ssh
+
+do copy run start
